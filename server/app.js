@@ -34,8 +34,8 @@ app.post('/login', async (req,res) => {
     const username = req.body.username
     const password = req.body.password
 
-    let user = await User.findOne({ username: username })
-    
+    const user = await User.findOne({ username })
+    console.log(user)
     bcrypt.compare(password, user.password, (error, result) => {
         if(result) { // credentials are valid
             var token = jwt.sign({ username: username }, 'someprivatekey');

@@ -1,0 +1,10 @@
+.Navbar {
+    background: linear-gradient(45deg, red, crimson);
+    color: white;
+    display: flex;
+}
+
+li {
+    font-size: 2rem;
+    color: white;
+}

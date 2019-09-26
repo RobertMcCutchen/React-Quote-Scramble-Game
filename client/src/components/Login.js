@@ -59,11 +59,12 @@ function Login(props) {
         })
     }
     
-    const handleRegister = (props) => {
+    const handleRegister = () => {
         axios.post('http://localhost:8888/register',{
             username: user.username, 
             password: user.password
         }).then(response => {
+            if( user.username && user.password) {
             const token = response.data.token
             // save token in local storage 
             localStorage.setItem('jsonwebtoken',token)
@@ -71,18 +72,25 @@ function Login(props) {
             setAuthenticationHeader(token)
             // change redux state to isAuthenticated true 
             props.onAuthenticated(token)
+            props.onAuthenticated(token)
+            props.history.push('/api/home')
+            }
+            
         })
     }
 
-    const handleLogin = (props) => {
+    const handleLogin = () => {
         axios.post('http://localhost:8888/login',{
             username: user.username, 
             password: user.password
         }).then(response => {
+            if(user.username && user.password) {
             const token = response.data.token
             localStorage.setItem('jsonwebtoken',token)
             setAuthenticationHeader(token)
             props.onAuthenticated(token)
+            props.history.push('/api/home')
+            }
         })
     }
 
@@ -96,12 +104,14 @@ function Login(props) {
                     name="username"
                     placeholder="Enter your username"
                     onChange={(e) => handleTextChange(e)}
+                    required
                 />
                 <input
                     type="password"
                     name="password"
                     placeholder="Enter your password"
                     onChange={(e) => handleTextChange(e)}
+                    required
                 />
                 <button onClick={() => handleRegister()}>Sign me up!</button>
             </div>
@@ -112,12 +122,14 @@ function Login(props) {
                     name="username"
                     placeholder="Enter your username"
                     onChange={(e) => handleTextChange(e)}
+                    required
                 />
                 <input
                     type="password"
                     name="password"
                     placeholder="Enter your password"
                     onChange={(e) => handleTextChange(e)}
+                    required
                 />
                 <button onClick={() => handleLogin()}>Log me in!</button>
             </div>

@@ -88,6 +88,10 @@ app.get('/api/my-quotes', (req,res) => {
     res.json([])
 })
 
+app.post('/save', (req,res) => {
+    let quote = req.body.quote
+    let author = req.body.author
+})
 
 app.listen(8888, () => {
     console.log('Server is running...')

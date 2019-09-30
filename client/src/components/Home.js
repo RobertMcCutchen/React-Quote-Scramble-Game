@@ -90,7 +90,7 @@ function Home() {
         }
 
     return (
-        <div>
+        <div classNam="container">
             <Menu/>
             <button onClick={() => onStartClick()}>Play!</button>
             {quote.map((q, index) => {   
@@ -100,7 +100,7 @@ function Home() {
                         </div>
                         }
             )}
-            {/* <button id="submitButton" onClick={() => onSubmit()} Style="display: none">Submit!</button> */}
+            <button id="submitButton" onClick={() => onSubmit()} Style="display: none">Submit!</button>
             <div id="resultsDiv"></div>
             <div id="quoteDiv"></div>
             <div id="authorDiv"></div>

@@ -14,7 +14,7 @@ function Menu(props) {
     return (
         <div className="Navbar">
         <ul>
-            { props.authenticated ?  <li><NavLink to = "/api/home" style={textDecoration: "none"}>Home</NavLink></li> : null }
+            { props.authenticated ?  <li><NavLink to = "/api/home">Home</NavLink></li> : null }
             { props.authenticated ? <li><NavLink to = "#">Favorite Quotes</NavLink></li> : null } 
             { props.authenticated ?  <li><a href="/" onClick={() => handleSignout()}>Sign out</a></li> : null } 
         </ul>

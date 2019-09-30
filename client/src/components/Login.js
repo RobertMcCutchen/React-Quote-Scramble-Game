@@ -2,51 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { setAuthenticationHeader } from '../utils/authenticate';
 import { connect } from 'react-redux';
-import { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-    body {
-        background-image: radial-gradient(circle, #bdc3c7, #ecf0f1);
-        color: #080808;
-        display: flex;
-        justify-items: center;
-        align-content: center;
-    }
-
-    .Form {
-        background-color: white;
-        width: 25rem;
-        display: flex;
-        flex-direction: column;
-        padding: 5px;
-        justify-content: center;
-    }
-
-    .Form span {
-        text-align: center;
-        font-size: 2rem;
-    }
-
-    .Form input {
-        margin: 5px;
-        font-size: 1.5rem;
-    }
-
-    .Form button {
-        background-color: #FFBF00;
-        color: white;
-        font-size: 2rem;
-        width: fit-content;
-        border-radius: 5px;
-        margin-left: auto;
-        margin-right: auto;
-        border: 5px solid rgba(0, 0, 0, 0.09)
-    }
-
-    .Form button:hover {
-        cursor: pointer;
-    }
-`;
+import './Login.css'
 
 function Login(props) {
     
@@ -96,7 +52,6 @@ function Login(props) {
 
     return (
         <div>
-        <GlobalStyle/>
             <div className="Form">
                 <span>Register</span>
                 <input
